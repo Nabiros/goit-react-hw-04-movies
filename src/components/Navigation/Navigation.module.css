@@ -1,8 +1,20 @@
-.NavLink {
-  font-size: 20px;
-  color: #2a2a2a;
+.nav {
+  display: block;
+  height: 70px;
+  background-image: url("./filmoteka.jpg");
 }
 
-.NavLink--active {
-  color: tomato;
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 20px;
+  font-weight: 700;
+  color: black;
+  font-size: 20px;
+  border: 1 px solid rgb(0, 89, 255);
+}
+
+.activeLink {
+  composes: link;
+  color: #2a84a5;
 }
