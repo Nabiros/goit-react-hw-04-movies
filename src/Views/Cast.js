@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
-import * as moviesApi from "../services/ApiService";
+import { useState, useEffect } from "react";
 import { Container } from "semantic-ui-react";
-import { useRouteMatch } from "react-router-dom";
+import * as moviesAPI from "../services/ApiService";
 import styled from "../ViewsStyle/Cast.module.css";
 
-export const Cast = ({ movieId }) => {
-  const { url } = useRouteMatch();
+export default function MovieCastView({ movieId }) {
   const [casts, setCasts] = useState(null);
   useEffect(() => {
-    moviesApi.movieCast(movieId).then((data) => setCasts(data.cast));
+    moviesAPI.movieCast(movieId).then((data) => setCasts(data.cast));
   }, [movieId]);
 
   return (
@@ -28,4 +26,4 @@ export const Cast = ({ movieId }) => {
       </ul>
     </Container>
   );
-};
+}

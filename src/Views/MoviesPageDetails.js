@@ -3,24 +3,24 @@ import { useParams } from "react-router-dom";
 import * as moviesApi from "../services/ApiService";
 import { Container } from "semantic-ui-react";
 
-const MoviesPageDetails = lazy(() =>
+const MoviePageDetails = lazy(() =>
   import(
-    "../components/MoviesPage/MoviesPage.js" /*webpackChunkName: "MoviesPage" */
+    "../components/MoviesPage/MoviesPage" /* webpackChunkName: "MoviePage"  */
   )
 );
 
-export const MoviesDetails = () => {
+export default function MovieDetails() {
   const { slug } = useParams();
-  const { movie, setMovie } = useState(null);
+  const [movie, setMovie] = useState(null);
   const movieId = slug.match(/[a-z0-9]+$/)[0];
 
   useEffect(() => {
-    moviesApi.movieDetails(movieId).then(setMovie);
+    moviesApi.movieInfo(movieId).then(setMovie);
   }, [movieId]);
 
   return (
     <Container textAlign="center">
-      {movie && <MoviesPageDetails movie={movie} />}
+      {movie && <MoviePageDetails movie={movie} />}
     </Container>
   );
-};
+}

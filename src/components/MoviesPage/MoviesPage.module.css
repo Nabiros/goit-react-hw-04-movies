@@ -6,7 +6,7 @@
 
 .movie_card {
   display: flex;
-  box-shadow: 5px 6px 9px rgb(85, 42, 85);
+  box-shadow: -1px 6px 8px 1px rgba(0, 0, 0, 0.25);
   margin-bottom: 30px;
 }
 
@@ -21,18 +21,18 @@
   padding: 20px;
   font-size: 20px;
   color: black;
-  width: 400px;
+  width: 300px;
   text-align: center;
   border-radius: 20px;
   cursor: pointer;
 }
 
 .button:hover {
-  color: #a52a62;
+  color: #5c5c5c;
 }
 
 .h2 {
-  color: #a52a62;
+  color: #434142;
   font-weight: 400;
   text-align: left;
   font-size: 40px;
@@ -43,7 +43,7 @@
 
 .h3 {
   text-align: center;
-  color: #a52a62;
+  color: #434142;
   font-weight: 500;
   font-size: 20px;
 }
@@ -85,9 +85,13 @@
   cursor: pointer;
   padding: 0 40px 0 40px;
   font-size: 18px;
+  box-shadow: -1px 6px 8px 1px rgba(0, 0, 0, 0.25);
+  margin-right: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .link:hover {
-  color: #a52a62;
+  color: #176a97;
 }
 
 .loader {

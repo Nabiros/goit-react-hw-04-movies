@@ -1,15 +1,16 @@
 import { lazy, useEffect, useState } from "react";
-import * as moviesApi from "../services/ApiService";
+import * as moviesAPI from "../services/ApiService";
 import { Container } from "semantic-ui-react";
 
 const HomePageMovies = lazy(() =>
-  import("../components/HomePage/HomePage.js" /*webpackChunkName: "HomePage*/)
+  import("../components/HomePage/HomePage" /* webpackChunkName: "HomePage"  */)
 );
 
-export const HomePage = () => {
+export default function HomePage() {
   const [movies, setMovies] = useState(null);
+
   useEffect(() => {
-    moviesApi.trendingMovies().then((data) => {
+    moviesAPI.moviesTrending().then((data) => {
       setMovies(data.results);
     });
   }, []);
@@ -19,4 +20,4 @@ export const HomePage = () => {
       {movies && <HomePageMovies movies={movies} />}
     </Container>
   );
-};
+}

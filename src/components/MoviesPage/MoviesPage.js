@@ -8,7 +8,7 @@ import {
   useHistory,
 } from "react-router-dom";
 import styled from "./MoviesPage.module.css";
-import { Spinner } from "../Spinner/Spinner";
+import Spinner from "../Spinner/Spinner";
 
 const Cast = lazy(() =>
   import("../../Views/Cast" /* webpackChunkName: "cast" */)
@@ -17,7 +17,7 @@ const Reviews = lazy(() =>
   import("../../Views/Reviews" /* webpackChunkName: "reviews" */)
 );
 
-export const MoviesPage = ({ movie }) => {
+export default function MoviesPage({ movie }) {
   const history = useHistory();
   const location = useLocation();
   const { slug } = useParams();
@@ -25,7 +25,7 @@ export const MoviesPage = ({ movie }) => {
 
   const movieId = slug.match(/[a-z0-9]+$/)[0];
 
-  const onBack = () => {
+  const onGoBack = () => {
     history.push(location?.state?.from?.location ?? "/");
   };
 
@@ -36,7 +36,7 @@ export const MoviesPage = ({ movie }) => {
 
   return (
     <div>
-      <button type="button" onClick={onBack} className={styled.button}>
+      <button type="button" onClick={onGoBack} className={styled.button}>
         {location?.state?.from?.label ?? "Go back to main page"}
       </button>
 
@@ -86,10 +86,11 @@ export const MoviesPage = ({ movie }) => {
         <Route path={`${path}/cast`}>
           <Cast movieId={movieId} />
         </Route>
+
         <Route path={`${path}/reviews`}>
           <Reviews movieId={movieId} />
         </Route>
       </Suspense>
     </div>
   );
-};
+}

@@ -4,7 +4,7 @@ import styled from "./HomePage.module.css";
 
 const makeSlug = (string) => slugify(string, { lover: true });
 
-export const HomePage = ({ movies }) => {
+const HomePage = ({ movies }) => {
   const location = useLocation();
 
   return (
@@ -33,3 +33,5 @@ export const HomePage = ({ movies }) => {
     </div>
   );
 };
+
+export default HomePage;

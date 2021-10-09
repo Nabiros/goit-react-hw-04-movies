@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "React";
+import React, { useState, useEffect } from "react";
 import * as moviesApi from "../services/ApiService";
 import { Container } from "semantic-ui-react";
 import styled from "../ViewsStyle/Reviews.module.css";
 
-export const MovieReviewsView = ({ movieId }) => {
+export default function MovieReviewsView({ movieId }) {
   const [reviews, setReviews] = useState(null);
 
   useEffect(() => {
@@ -24,4 +24,4 @@ export const MovieReviewsView = ({ movieId }) => {
       </ul>
     </Container>
   );
-};
+}

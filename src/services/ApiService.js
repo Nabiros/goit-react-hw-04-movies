@@ -1,25 +1,25 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://api.themoviedb.org";
+axios.defaults.baseURL = "https://api.themoviedb.org/3/";
 
 axios.defaults.params = {
-  apiKey: "98821d28938ee5f201a6b9b7afe95fef",
+  api_key: "98821d28938ee5f201a6b9b7afe95fef",
 };
 
-async function fetchMovies(url = "", configure = {}) {
-  const response = await axios.get(url, configure);
+async function fetchMovies(url = "", config = {}) {
+  const response = await axios.get(url, config);
   return response.data;
 }
 
-export function trendingMovies() {
+export function moviesTrending() {
   return fetchMovies(`trending/movie/day?`);
 }
 
-export function searchMovie(searchMovie, page) {
+export function moviesSearch(searchMovie, page) {
   return fetchMovies(`search/movie?&query=${searchMovie}&page=${page}`);
 }
 
-export function movieDetails(movieId) {
+export function movieInfo(movieId) {
   return fetchMovies(`movie/${movieId}`);
 }
 
